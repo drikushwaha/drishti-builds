@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Drishti — Developer & Designer</title>
+    <title>Drishti — Visual Web Developer</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -32,7 +32,6 @@
         body {
             background-color: #0B0B0B;
             color: #E5E5E5;
-            cursor: default;
         }
         .text-stroke {
             -webkit-text-stroke: 1.5px #333;
@@ -43,57 +42,132 @@
             color: #9EF01A;
             transition: all 0.3s ease;
         }
-        /* Glowing Mouse Follower */
         #glow {
             pointer-events: none;
-            background: radial-gradient(circle, rgba(158, 240, 26, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
-            transition: transform 0.1s linear;
+            background: radial-gradient(circle, rgba(158, 240, 26, 0.12) 0%, rgba(0, 0, 0, 0) 70%);
+        }
+        .glass-card {
+            background: rgba(20, 20, 20, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        /* Pure CSS Moving Marquee Animation */
+        @keyframes marqueeScroll {
+            0% { transform: translateX(0%); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-marquee-smooth {
+            display: flex;
+            width: 200%;
+            animation: marqueeScroll 12s linear infinite;
+        }
+        .animate-marquee-smooth:hover {
+            animation-play-state: paused;
         }
     </style>
 </head>
 <body class="font-space overflow-x-hidden selection:bg-matcha selection:text-black">
 
-    <div id="glow" class="fixed top-0 left-0 w-[500px] h-[500px] -translate-x-1/2 -translate-y-1/2 z-0 rounded-full"></div>
+    <div id="glow" class="fixed top-0 left-0 w-[600px] h-[600px] -translate-x-1/2 -translate-y-1/2 z-0 rounded-full transition-transform duration-75"></div>
 
-    <nav class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-6 md:px-12 py-6 backdrop-blur-md bg-darkbg/60 border-b border-white/5">
+    <nav class="fixed top-0 left-0 w-full z-40 flex flex-wrap justify-between items-center px-4 md:px-12 py-4 backdrop-blur-md bg-darkbg/80 border-b border-white/10 gap-3">
         <a href="#" class="font-syne text-xl font-bold tracking-wider text-white hover:text-matcha transition-colors">DRISHTI<span class="text-matcha">.</span></a>
-        <div class="flex items-center gap-4">
-            <span class="inline-flex items-center gap-2 px-3 py-1 text-xs uppercase tracking-widest bg-white/5 rounded-full border border-white/10 text-neutral-400">
-                <span class="w-2 h-2 rounded-full bg-matcha animate-pulse"></span> India 🇮🇳
+        
+        <div class="hidden md:flex items-center gap-1 bg-white/5 border border-white/10 p-1 rounded-full text-xs font-semibold">
+            <a href="#work" class="px-4 py-1.5 rounded-full text-neutral-300 hover:text-black hover:bg-matcha transition-all">Selected Work</a>
+            <a href="#testimonials" class="px-4 py-1.5 rounded-full text-neutral-300 hover:text-black hover:bg-matcha transition-all">Client Words</a>
+            <a href="#pricing" class="px-4 py-1.5 rounded-full text-neutral-300 hover:text-black hover:bg-matcha transition-all">What We Offer</a>
+            <a href="#faq" class="px-4 py-1.5 rounded-full text-neutral-300 hover:text-black hover:bg-matcha transition-all">FAQ</a>
+        </div>
+
+        <div class="flex items-center gap-3">
+            <span class="hidden sm:inline-flex items-center gap-2 px-3 py-1 text-xs font-semibold uppercase tracking-wider bg-matcha/10 border border-matcha/30 text-matcha rounded-full">
+                <span class="w-2 h-2 rounded-full bg-matcha animate-ping"></span> Available
             </span>
-            <a href="#contact" class="hidden sm:inline-block px-5 py-2 text-sm font-semibold bg-matcha text-black rounded-full hover:bg-white hover:scale-105 transition-all">Let's Talk</a>
+            <button onclick="openModal()" class="px-5 py-2 text-xs md:text-sm font-semibold bg-matcha text-black rounded-full hover:bg-white hover:scale-105 transition-all shadow-[0_0_15px_rgba(158,240,26,0.3)]">
+                Start Project ⚡
+            </button>
         </div>
     </nav>
 
-    <section class="min-h-screen pt-32 pb-20 px-6 md:px-12 flex flex-col justify-center relative z-10 max-w-7xl mx-auto">
+    <section class="min-h-screen pt-36 pb-16 px-6 md:px-12 flex flex-col justify-center relative z-10 max-w-7xl mx-auto">
+        
+        <div class="flex md:hidden overflow-x-auto gap-2 mb-6 pb-2 no-scrollbar text-xs">
+            <a href="#work" class="whitespace-nowrap px-4 py-2 bg-white/5 border border-white/10 rounded-full text-neutral-300">⚡ Our Work</a>
+            <a href="#testimonials" class="whitespace-nowrap px-4 py-2 bg-white/5 border border-white/10 rounded-full text-neutral-300">💬 Testimonials</a>
+            <a href="#pricing" class="whitespace-nowrap px-4 py-2 bg-white/5 border border-white/10 rounded-full text-neutral-300">🏷️ Services & Rates</a>
+            <a href="#faq" class="whitespace-nowrap px-4 py-2 bg-white/5 border border-white/10 rounded-full text-neutral-300">❓ FAQ</a>
+        </div>
+
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             
             <div class="lg:col-span-7 space-y-6">
-                <p class="text-matcha uppercase tracking-widest text-sm font-semibold hover-target">Creative Developer & Visual Designer</p>
-                <h1 class="font-syne text-5xl sm:text-7xl xl:text-8xl font-extrabold uppercase leading-[0.95] tracking-tight text-white hero-title">
-                    Crafting <br>
-                    <span class="text-stroke">Digital</span> <br>
-                    Attitude.
+                <div class="inline-block px-4 py-1.5 bg-white/5 border border-white/10 rounded-full text-xs uppercase tracking-widest text-matcha font-semibold">
+                    India 🇮🇳 • Global Clients • Rapid Turnaround
+                </div>
+                <h1 class="font-syne text-5xl sm:text-7xl xl:text-8xl font-extrabold uppercase leading-[0.92] tracking-tight text-white hero-title">
+                    Not Days.<br>
+                    <span class="text-stroke">Not Weeks.</span><br>
+                    Just Hours.
                 </h1>
                 <p class="text-neutral-400 text-lg max-w-lg leading-relaxed pt-2">
-                    Fuelled by matcha and clean code. I build bold, motion-driven websites that turn passive visitors into active scrolling addicts.
+                    I build animated, conversion-driven landing pages, portfolios, and websites. Over **25+ successful client projects** delivered worldwide.
                 </p>
-                <div class="pt-4 flex items-center gap-6">
-                    <a href="#work" class="px-8 py-4 bg-matcha text-black font-bold uppercase tracking-wider rounded-full hover:shadow-[0_0_30px_rgba(158,240,26,0.4)] transition-all">Explore Work</a>
-                    <a href="#about" class="text-neutral-400 hover:text-white transition-colors underline underline-offset-8 decoration-matcha">About Me</a>
+                
+                <div class="grid grid-cols-3 gap-4 pt-2 max-w-md">
+                    <div class="p-3 rounded-xl bg-white/5 border border-white/10">
+                        <div class="text-2xl font-bold font-syne text-matcha">12h</div>
+                        <div class="text-xs text-neutral-400">Landing Page</div>
+                    </div>
+                    <div class="p-3 rounded-xl bg-white/5 border border-white/10">
+                        <div class="text-2xl font-bold font-syne text-matcha">36h</div>
+                        <div class="text-xs text-neutral-400">Full Website</div>
+                    </div>
+                    <div class="p-3 rounded-xl bg-white/5 border border-white/10">
+                        <div class="text-2xl font-bold font-syne text-matcha">25+</div>
+                        <div class="text-xs text-neutral-400">Happy Clients</div>
+                    </div>
+                </div>
+
+                <div class="pt-4 flex flex-wrap items-center gap-4">
+                    <button onclick="openModal()" class="px-8 py-4 bg-matcha text-black font-bold uppercase tracking-wider rounded-full hover:shadow-[0_0_30px_rgba(158,240,26,0.4)] hover:scale-105 transition-all">
+                        Fill Info Form ⚡
+                    </button>
+                    <a href="#work" class="px-8 py-4 border border-white/20 text-white font-bold uppercase tracking-wider rounded-full hover:border-matcha hover:text-matcha transition-all">
+                        View Live Works
+                    </a>
                 </div>
             </div>
 
             <div class="lg:col-span-5 relative flex justify-center">
-                <div class="relative w-full max-w-md aspect-[3/4] rounded-2xl overflow-hidden border border-white/10 bg-cardbg shadow-2xl group">
-                    <img src="YOUR_IMAGE_URL_HERE.jpg" alt="Drishti" class="w-full h-full object-cover grayscale contrast-125 group-hover:scale-105 group-hover:grayscale-0 transition-all duration-700">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
-                    <div class="absolute bottom-6 left-6 right-6 flex justify-between items-end">
-                        <div>
-                            <p class="text-xs uppercase tracking-widest text-matcha font-semibold">Matcha-fueled</p>
-                            <p class="text-lg font-syne font-bold text-white">Full-Stack Magic</p>
+                <div class="relative w-full max-w-md glass-card rounded-2xl p-6 border border-white/10 shadow-2xl space-y-4">
+                    <div class="flex items-center justify-between border-b border-white/10 pb-4">
+                        <div class="flex gap-2">
+                            <span class="w-3 h-3 rounded-full bg-red-500/80 inline-block"></span>
+                            <span class="w-3 h-3 rounded-full bg-yellow-500/80 inline-block"></span>
+                            <span class="w-3 h-3 rounded-full bg-green-500/80 inline-block"></span>
                         </div>
-                        <span class="text-3xl">🍵</span>
+                        <span class="text-xs text-neutral-500 font-mono">drishti.config.js</span>
+                    </div>
+
+                    <div class="font-mono text-xs space-y-3 leading-relaxed text-neutral-300">
+                        <p class="text-matcha">// Speed & Quality Guaranteed</p>
+                        <p><span class="text-purple-400">const</span> developer = <span class="text-yellow-300">"Drishti"</span>;</p>
+                        <p><span class="text-purple-400">const</span> delivery = {</p>
+                        <p class="pl-4">landingPage: <span class="text-matcha">"12 Hours"</span>,</p>
+                        <p class="pl-4">fullWebsite: <span class="text-matcha">"36 Hours"</span></p>
+                        <p>};</p>
+                        <p><span class="text-purple-400">const</span> pricing = {</p>
+                        <p class="pl-4">landing: <span class="text-matcha">"₹149"</span>,</p>
+                        <p class="pl-4">portfolio: <span class="text-matcha">"₹199"</span>,</p>
+                        <p class="pl-4">website: <span class="text-matcha">"₹499"</span></p>
+                        <p>};</p>
+                    </div>
+
+                    <div class="pt-4 border-t border-white/10 flex justify-between items-center text-xs text-neutral-400">
+                        <span>Status: <span class="text-matcha font-semibold">Active & Building</span></span>
+                        <span class="px-2 py-1 bg-matcha/10 text-matcha rounded border border-matcha/20">100% Client Satisfaction</span>
                     </div>
                 </div>
             </div>
@@ -101,102 +175,330 @@
         </div>
     </section>
 
-    <div class="w-full py-6 bg-matcha text-black font-syne font-extrabold text-2xl md:text-4xl uppercase tracking-wider overflow-hidden rotate-[-2deg] my-12 border-y-2 border-black">
-        <div class="flex gap-8 whitespace-nowrap animate-marquee">
-            <span>UI/UX Design • Web Development • Kinetic Motion • Interactive 3D • React • GSAP • Creative Direction •</span>
-            <span>UI/UX Design • Web Development • Kinetic Motion • Interactive 3D • React • GSAP • Creative Direction •</span>
+    <div class="w-full py-5 bg-matcha text-black font-syne font-extrabold text-2xl md:text-3xl uppercase tracking-wider overflow-hidden rotate-[-1.5deg] my-8 border-y-2 border-black">
+        <div class="animate-marquee-smooth whitespace-nowrap">
+            <span>⚡ LANDING PAGES IN 12HRS • PORTFOLIOS IN 199rs • WEBSITES IN 36HRS • 25+ CLIENTS WORLDWIDE • FULLY ANIMATED •&nbsp;</span>
+            <span>⚡ LANDING PAGES IN 12HRS • PORTFOLIOS IN 199rs • WEBSITES IN 36HRS • 25+ CLIENTS WORLDWIDE • FULLY ANIMATED •&nbsp;</span>
         </div>
     </div>
 
-    <section id="work" class="py-24 px-6 md:px-12 max-w-7xl mx-auto z-10 relative">
+    <section id="work" class="py-20 px-6 md:px-12 max-w-7xl mx-auto z-10 relative">
         <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-4">
             <div>
-                <span class="text-matcha uppercase tracking-widest text-xs font-semibold">Selected Works</span>
-                <h2 class="font-syne text-4xl sm:text-6xl font-bold uppercase text-white mt-2">Projects That <span class="text-stroke">Pop</span></h2>
+                <span class="text-matcha uppercase tracking-widest text-xs font-semibold">Live Examples</span>
+                <h2 class="font-syne text-4xl sm:text-6xl font-bold uppercase text-white mt-2">Featured <span class="text-stroke">Builds</span></h2>
             </div>
-            <p class="text-neutral-400 max-w-xs text-sm">Every line of code is written with performance and visceral visual interaction in mind.</p>
+            <p class="text-neutral-400 max-w-xs text-sm">Click any card to launch the actual live client website in a new tab.</p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div class="group relative bg-cardbg border border-white/5 rounded-2xl p-6 hover:border-matcha/50 transition-all duration-500 overflow-hidden">
-                <div class="aspect-video bg-neutral-900 rounded-xl mb-6 overflow-hidden relative">
-                    <div class="absolute inset-0 bg-neutral-800 flex items-center justify-center text-neutral-600 font-syne text-2xl font-bold group-hover:scale-110 transition-transform duration-500">[ Interactive Web App ]</div>
+            
+            <a href="https://thkarigro.lovable.app/" target="_blank" rel="noopener noreferrer" class="glass-card p-6 rounded-2xl group hover:border-matcha/80 transition-all duration-500 block">
+                <div class="aspect-video bg-neutral-900 rounded-xl mb-6 overflow-hidden flex items-center justify-center border border-white/5 relative group-hover:bg-neutral-800 transition-colors">
+                    <span class="font-syne text-3xl font-extrabold text-neutral-500 group-hover:text-matcha group-hover:scale-110 transition-all duration-500">KARIGRO</span>
+                    <div class="absolute top-4 right-4 bg-matcha text-black text-xs font-bold px-3 py-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity">Visit Live Site ↗</div>
                 </div>
-                <div class="flex justify-between items-start">
+                <div class="flex justify-between items-center">
                     <div>
-                        <h3 class="font-syne text-2xl font-bold text-white group-hover:text-matcha transition-colors">Neo-Brutalist E-Com</h3>
-                        <p class="text-neutral-400 text-sm mt-1">Design System & Next.js Development</p>
+                        <h3 class="font-syne text-2xl font-bold text-white group-hover:text-matcha transition-colors">Karigro Brand Website</h3>
+                        <p class="text-neutral-400 text-sm mt-1">Sleek brand architecture with smooth interactive flow.</p>
                     </div>
-                    <span class="p-3 bg-white/5 rounded-full group-hover:bg-matcha group-hover:text-black transition-all">↗</span>
+                    <span class="text-matcha text-xl group-hover:translate-x-1 transition-transform">↗</span>
                 </div>
-            </div>
-
-            <div class="group relative bg-cardbg border border-white/5 rounded-2xl p-6 hover:border-matcha/50 transition-all duration-500 overflow-hidden md:translate-y-12">
-                <div class="aspect-video bg-neutral-900 rounded-xl mb-6 overflow-hidden relative">
-                    <div class="absolute inset-0 bg-neutral-800 flex items-center justify-center text-neutral-600 font-syne text-2xl font-bold group-hover:scale-110 transition-transform duration-500">[ Motion Portfolio ]</div>
-                </div>
-                <div class="flex justify-between items-start">
-                    <div>
-                        <h3 class="font-syne text-2xl font-bold text-white group-hover:text-matcha transition-colors">Aesthetic Studio Concept</h3>
-                        <p class="text-neutral-400 text-sm mt-1">GSAP ScrollTrigger & Three.js</p>
-                    </div>
-                    <span class="p-3 bg-white/5 rounded-full group-hover:bg-matcha group-hover:text-black transition-all">↗</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="py-32 px-6 md:px-12 max-w-7xl mx-auto text-center relative z-10">
-        <div class="bg-gradient-to-b from-cardbg to-black border border-white/10 rounded-3xl p-10 md:p-20 relative overflow-hidden">
-            <div class="absolute top-0 right-0 w-64 h-64 bg-matcha/10 rounded-full blur-3xl"></div>
-            <span class="text-matcha uppercase tracking-widest text-xs font-semibold">Got an idea?</span>
-            <h2 class="font-syne text-4xl sm:text-7xl font-extrabold uppercase text-white mt-4 mb-8 leading-tight">
-                Let’s Build Something <br><span class="text-matcha">Unforgettable</span>
-            </h2>
-            <a href="mailto:hello@drishti.dev" class="inline-block px-10 py-5 bg-matcha text-black font-syne font-bold text-lg uppercase tracking-wider rounded-full hover:bg-white hover:scale-105 transition-all shadow-lg">
-                Start a Project
             </a>
-            <div class="mt-16 flex justify-center gap-8 text-neutral-400 text-sm">
-                <a href="#" class="hover:text-matcha transition-colors">GitHub</a>
-                <a href="#" class="hover:text-matcha transition-colors">LinkedIn</a>
-                <a href="#" class="hover:text-matcha transition-colors">Twitter / X</a>
-                <a href="#" class="hover:text-matcha transition-colors">Instagram</a>
+
+            <a href="https://pink-village-blush.lovable.app" target="_blank" rel="noopener noreferrer" class="glass-card p-6 rounded-2xl group hover:border-matcha/80 transition-all duration-500 block">
+                <div class="aspect-video bg-neutral-900 rounded-xl mb-6 overflow-hidden flex items-center justify-center border border-white/5 relative group-hover:bg-neutral-800 transition-colors">
+                    <span class="font-syne text-3xl font-extrabold text-neutral-500 group-hover:text-pink-400 group-hover:scale-110 transition-all duration-500">PINK CAFE</span>
+                    <div class="absolute top-4 right-4 bg-matcha text-black text-xs font-bold px-3 py-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity">Visit Live Site ↗</div>
+                </div>
+                <div class="flex justify-between items-center">
+                    <div>
+                        <h3 class="font-syne text-2xl font-bold text-white group-hover:text-matcha transition-colors">Pink Cafe Store Website</h3>
+                        <p class="text-neutral-400 text-sm mt-1">Vibrant, store-front e-commerce experience.</p>
+                    </div>
+                    <span class="text-matcha text-xl group-hover:translate-x-1 transition-transform">↗</span>
+                </div>
+            </a>
+
+            <a href="https://xanthron-landingpage.lovable.app" target="_blank" rel="noopener noreferrer" class="glass-card p-6 rounded-2xl group hover:border-matcha/80 transition-all duration-500 block">
+                <div class="aspect-video bg-neutral-900 rounded-xl mb-6 overflow-hidden flex items-center justify-center border border-white/5 relative group-hover:bg-neutral-800 transition-colors">
+                    <span class="font-syne text-3xl font-extrabold text-neutral-500 group-hover:text-matcha group-hover:scale-110 transition-all duration-500">XANCTHRON MUN</span>
+                    <div class="absolute top-4 right-4 bg-matcha text-black text-xs font-bold px-3 py-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity">Visit Live Site ↗</div>
+                </div>
+                <div class="flex justify-between items-center">
+                    <div>
+                        <h3 class="font-syne text-2xl font-bold text-white group-hover:text-matcha transition-colors">Xanthron MUN Landing Page</h3>
+                        <p class="text-neutral-400 text-sm mt-1">High-impact event landing page built in express time.</p>
+                    </div>
+                    <span class="text-matcha text-xl group-hover:translate-x-1 transition-transform">↗</span>
+                </div>
+            </a>
+
+            <div class="glass-card p-6 rounded-2xl group hover:border-matcha/80 transition-all duration-500 relative">
+                <div class="aspect-video bg-neutral-900 rounded-xl mb-6 overflow-hidden flex items-center justify-center border border-white/5 relative">
+                    <span class="font-syne text-2xl font-extrabold text-neutral-500 group-hover:text-matcha transition-all duration-500">MARKETER PORTFOLIO</span>
+                    <div class="absolute top-4 right-4 bg-white/10 text-neutral-300 text-xs font-bold px-3 py-1 rounded-full">Custom Build</div>
+                </div>
+                <div class="flex justify-between items-center">
+                    <div>
+                        <h3 class="font-syne text-2xl font-bold text-white group-hover:text-matcha transition-colors">Digital Marketer Portfolio</h3>
+                        <p class="text-neutral-400 text-sm mt-1">Personal branding platform optimized for lead capture.</p>
+                    </div>
+                    <span class="text-neutral-500 text-sm">Active</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="testimonials" class="py-20 px-6 md:px-12 max-w-7xl mx-auto z-10 relative">
+        <div class="text-center mb-16">
+            <span class="text-matcha uppercase tracking-widest text-xs font-semibold">Client Words</span>
+            <h2 class="font-syne text-4xl sm:text-6xl font-bold uppercase text-white mt-2">What They <span class="text-stroke">Say</span></h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="glass-card p-8 rounded-2xl relative border-l-4 border-l-matcha">
+                <div class="text-matcha text-4xl font-syne mb-2">“</div>
+                <p class="text-neutral-300 text-sm leading-relaxed mb-6">
+                    "Drishti delivered our site in literally 12 hours! The animations were smooth and exactly what we wanted for our brand launch."
+                </p>
+                <div>
+                    <p class="font-syne font-bold text-white">Karigro Team</p>
+                    <p class="text-xs text-matcha">Karigro Brand Website</p>
+                </div>
+            </div>
+
+            <div class="glass-card p-8 rounded-2xl relative border-l-4 border-l-matcha">
+                <div class="text-matcha text-4xl font-syne mb-2">“</div>
+                <p class="text-neutral-300 text-sm leading-relaxed mb-6">
+                    "Hands down the best ₹199 spent. My digital marketing portfolio got 3 new client inquiries in the very first week."
+                </p>
+                <div>
+                    <p class="font-syne font-bold text-white">Aaman Sharma</p>
+                    <p class="text-xs text-matcha">Digital Marketer</p>
+                </div>
+            </div>
+
+            <div class="glass-card p-8 rounded-2xl relative border-l-4 border-l-matcha">
+                <div class="text-matcha text-4xl font-syne mb-2">“</div>
+                <p class="text-neutral-300 text-sm leading-relaxed mb-6">
+                    "Super responsive, effortless setup, and she made it so easy for us to make quick content updates whenever we need!"
+                </p>
+                <div>
+                    <p class="font-syne font-bold text-white">Pink Cafe Owner</p>
+                    <p class="text-xs text-matcha">Pink Cafe Store</p>
+                </div>
             </div>
         </div>
     </section>
+
+    <section id="pricing" class="py-24 px-6 md:px-12 max-w-7xl mx-auto z-10 relative">
+        <div class="text-center max-w-2xl mx-auto mb-16">
+            <span class="text-matcha uppercase tracking-widest text-xs font-semibold">Unbeatable Rates</span>
+            <h2 class="font-syne text-4xl sm:text-6xl font-bold uppercase text-white mt-2">What We <span class="text-stroke">Offer</span></h2>
+            <p class="text-neutral-400 text-sm mt-4">Fully animated, interactive web experiences crafted strictly on your terms.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="glass-card rounded-2xl p-8 hover:border-matcha/50 transition-all duration-300 relative group flex flex-col justify-between">
+                <div>
+                    <div class="text-xs uppercase tracking-widest text-matcha font-semibold mb-2">12 Hour Express</div>
+                    <h3 class="font-syne text-3xl font-bold text-white">Landing Page</h3>
+                    <div class="my-6">
+                        <span class="text-5xl font-extrabold font-syne text-white">₹149</span>
+                        <span class="text-neutral-400 text-sm">/ project</span>
+                    </div>
+                    <ul class="space-y-3 text-neutral-300 text-sm mb-8">
+                        <li class="flex items-center gap-2"><span class="text-matcha">✓</span> Delivery in **12 Hours**</li>
+                        <li class="flex items-center gap-2"><span class="text-matcha">✓</span> Fully Animated & Interactive</li>
+                        <li class="flex items-center gap-2"><span class="text-matcha">✓</span> Conversion-Focused Hero</li>
+                        <li class="flex items-center gap-2"><span class="text-matcha">✓</span> Mobile & Desktop Optimized</li>
+                    </ul>
+                </div>
+                <button onclick="openModal('Landing Page - ₹149')" class="w-full py-3 bg-white/10 hover:bg-matcha hover:text-black font-semibold rounded-xl transition-all">Select Plan</button>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 border-2 border-matcha/80 relative group flex flex-col justify-between transform md:-translate-y-4 shadow-[0_0_30px_rgba(158,240,26,0.15)]">
+                <div class="absolute -top-3 right-6 bg-matcha text-black text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Most Popular</div>
+                <div>
+                    <div class="text-xs uppercase tracking-widest text-matcha font-semibold mb-2">Personal Branding</div>
+                    <h3 class="font-syne text-3xl font-bold text-white">Web Portfolio</h3>
+                    <div class="my-6">
+                        <span class="text-5xl font-extrabold font-syne text-matcha">₹199</span>
+                        <span class="text-neutral-400 text-sm">/ project</span>
+                    </div>
+                    <ul class="space-y-3 text-neutral-300 text-sm mb-8">
+                        <li class="flex items-center gap-2"><span class="text-matcha">✓</span> Express 24-Hour Delivery</li>
+                        <li class="flex items-center gap-2"><span class="text-matcha">✓</span> Dynamic Animations & FX</li>
+                        <li class="flex items-center gap-2"><span class="text-matcha">✓</span> Works & Testimonials Showcase</li>
+                        <li class="flex items-center gap-2"><span class="text-matcha">✓</span> Easy-to-Update Content</li>
+                    </ul>
+                </div>
+                <button onclick="openModal('Portfolio - ₹199')" class="w-full py-3 bg-matcha text-black font-bold rounded-xl hover:bg-white transition-all shadow-md">Select Plan</button>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 hover:border-matcha/50 transition-all duration-300 relative group flex flex-col justify-between">
+                <div>
+                    <div class="text-xs uppercase tracking-widest text-matcha font-semibold mb-2">Complete Solution</div>
+                    <h3 class="font-syne text-3xl font-bold text-white">Full Website</h3>
+                    <div class="my-6">
+                        <span class="text-5xl font-extrabold font-syne text-white">₹499</span>
+                        <span class="text-neutral-400 text-sm">/ project</span>
+                    </div>
+                    <ul class="space-y-3 text-neutral-300 text-sm mb-8">
+                        <li class="flex items-center gap-2"><span class="text-matcha">✓</span> Delivery in **36 Hours**</li>
+                        <li class="flex items-center gap-2"><span class="text-matcha">✓</span> Multi-Page Architecture</li>
+                        <li class="flex items-center gap-2"><span class="text-matcha">✓</span> Custom Motion & Interactions</li>
+                        <li class="flex items-center gap-2"><span class="text-matcha">✓</span> International Client Support</li>
+                    </ul>
+                </div>
+                <button onclick="openModal('Full Website - ₹499')" class="w-full py-3 bg-white/10 hover:bg-matcha hover:text-black font-semibold rounded-xl transition-all">Select Plan</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="py-20 px-6 md:px-12 max-w-4xl mx-auto z-10 relative">
+        <div class="text-center mb-12">
+            <span class="text-matcha uppercase tracking-widest text-xs font-semibold">Got Questions?</span>
+            <h2 class="font-syne text-4xl sm:text-5xl font-bold uppercase text-white mt-2">Frequently Asked</h2>
+        </div>
+
+        <div class="space-y-4">
+            <div class="glass-card rounded-xl overflow-hidden">
+                <button onclick="toggleAccordion(1)" class="w-full p-6 text-left flex justify-between items-center font-syne font-bold text-lg text-white hover:text-matcha transition-colors">
+                    <span>Do you work with clients outside India?</span>
+                    <span id="icon-1" class="text-matcha font-mono text-xl">+</span>
+                </button>
+                <div id="acc-1" class="hidden px-6 pb-6 text-neutral-400 text-sm leading-relaxed border-t border-white/5 pt-4">
+                    Yes! We work with clients all around the globe. Communication and payment handshakes are streamlined regardless of time zone.
+                </div>
+            </div>
+
+            <div class="glass-card rounded-xl overflow-hidden">
+                <button onclick="toggleAccordion(2)" class="w-full p-6 text-left flex justify-between items-center font-syne font-bold text-lg text-white hover:text-matcha transition-colors">
+                    <span>How do we get started?</span>
+                    <span id="icon-2" class="text-matcha font-mono text-xl">+</span>
+                </button>
+                <div id="acc-2" class="hidden px-6 pb-6 text-neutral-400 text-sm leading-relaxed border-t border-white/5 pt-4">
+                    All we need from you to begin is to fill out our quick **Information Form**. That gives us your preferences so we make your website on your exact terms!
+                </div>
+            </div>
+
+            <div class="glass-card rounded-xl overflow-hidden">
+                <button onclick="toggleAccordion(3)" class="w-full p-6 text-left flex justify-between items-center font-syne font-bold text-lg text-white hover:text-matcha transition-colors">
+                    <span>Will I be able to update my website later?</span>
+                    <span id="icon-3" class="text-matcha font-mono text-xl">+</span>
+                </button>
+                <div id="acc-3" class="hidden px-6 pb-6 text-neutral-400 text-sm leading-relaxed border-t border-white/5 pt-4">
+                    Yes! Your site is engineered so you can easily update text, project photos, and details down the road whenever you need.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact" class="py-24 px-6 md:px-12 max-w-7xl mx-auto text-center relative z-10">
+        <div class="glass-card border border-white/10 rounded-3xl p-10 md:p-16 relative overflow-hidden">
+            <span class="text-matcha uppercase tracking-widest text-xs font-semibold">Ready to Launch?</span>
+            <h2 class="font-syne text-4xl sm:text-6xl font-extrabold uppercase text-white mt-4 mb-8">
+                Let's Build Your <br><span class="text-matcha">Vision Today</span>
+            </h2>
+            
+            <div class="flex flex-wrap justify-center gap-4 mb-10">
+                <button onclick="openModal()" class="px-8 py-4 bg-matcha text-black font-syne font-bold text-lg uppercase tracking-wider rounded-full hover:bg-white hover:scale-105 transition-all shadow-lg">
+                    Fill Info Form ⚡
+                </button>
+                <a href="mailto:dri.kushwaha0@gmail.com" class="px-8 py-4 bg-white/10 text-white font-syne font-bold text-lg uppercase tracking-wider rounded-full hover:bg-white hover:text-black transition-all">
+                    Email Directly
+                </a>
+            </div>
+
+            <div class="pt-8 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center gap-4 text-neutral-400 text-sm">
+                <div>Email: <a href="mailto:dri.kushwaha0@gmail.com" class="text-white hover:text-matcha">dri.kushwaha0@gmail.com</a></div>
+                <div class="flex gap-6">
+                    <a href="https://instagram.com/dri_unfiltered" target="_blank" rel="noopener noreferrer" class="hover:text-matcha transition-colors">Instagram: @dri_unfiltered</a>
+                    <a href="https://threads.net/@dri_unfiltered" target="_blank" rel="noopener noreferrer" class="hover:text-matcha transition-colors">Threads: @dri_unfiltered</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div id="infoModal" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
+        <div class="glass-card max-w-lg w-full p-8 rounded-2xl border border-white/20 relative animate-in fade-in zoom-in duration-200">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-neutral-400 hover:text-white text-xl">✕</button>
+            
+            <h3 class="font-syne text-2xl font-bold text-white mb-2">Project Request Form ⚡</h3>
+            <p class="text-neutral-400 text-xs mb-6">Fill in your details below to kickstart your website build on your exact terms.</p>
+            
+            <form action="https://formspree.io/f/xknlqrrr" method="POST" class="space-y-4">
+                <div>
+                    <label class="block text-xs uppercase tracking-wider text-neutral-300 mb-1">Your Name</label>
+                    <input type="text" name="name" required placeholder="Your Name" class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-matcha">
+                </div>
+                <div>
+                    <label class="block text-xs uppercase tracking-wider text-neutral-300 mb-1">Your Email</label>
+                    <input type="email" name="email" required placeholder="you@example.com" class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-matcha">
+                </div>
+                <div>
+                    <label class="block text-xs uppercase tracking-wider text-neutral-300 mb-1">Project Service</label>
+                    <select id="serviceSelect" name="service" class="w-full bg-neutral-900 border border-white/10 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-matcha">
+                        <option>Landing Page (₹149 - 12 Hours Delivery)</option>
+                        <option>Web Portfolio (₹199 - 24 Hours Delivery)</option>
+                        <option>Full Website (₹499 - 36 Hours Delivery)</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-xs uppercase tracking-wider text-neutral-300 mb-1">Project Details & Requirements</label>
+                    <textarea name="details" rows="3" placeholder="Tell us about your brand, preferred style, or links..." class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-matcha"></textarea>
+                </div>
+                <button type="submit" class="w-full py-3 bg-matcha text-black font-syne font-bold uppercase tracking-wider rounded-lg hover:bg-white transition-all">Submit Info Form</button>
+            </form>
+        </div>
+    </div>
 
     <script>
-        // Initialize GSAP
-        gsap.registerPlugin(ScrollTrigger);
-
-        // Glowing cursor follower logic
+        // Interactive Glow Follower
         const glow = document.getElementById('glow');
         window.addEventListener('mousemove', (e) => {
-            glow.style.transform = `translate(${e.clientX - 250}px, ${e.clientY - 250}px)`;
+            glow.style.transform = `translate(${e.clientX - 300}px, ${e.clientY - 300}px)`;
         });
 
-        // Hero Title Entry Animation
-        gsap.from(".hero-title", {
-            opacity: 0,
-            y: 50,
-            duration: 1.2,
-            ease: "power4.out"
-        });
+        // FAQ Accordion Toggle
+        function toggleAccordion(id) {
+            const content = document.getElementById(`acc-${id}`);
+            const icon = document.getElementById(`icon-${id}`);
+            
+            if (content.classList.contains('hidden')) {
+                content.classList.remove('hidden');
+                icon.textContent = '-';
+            } else {
+                content.classList.add('hidden');
+                icon.textContent = '+';
+            }
+        }
 
-        // Marquee Smooth Infinite Loop CSS
-        const style = document.createElement('style');
-        style.innerHTML = `
-            @keyframes marquee {
-                0% { transform: translateX(0%); }
-                100% { transform: translateX(-50%); }
+        // Modal Handlers
+        function openModal(serviceName = '') {
+            document.getElementById('infoModal').classList.remove('hidden');
+            if(serviceName) {
+                const select = document.getElementById('serviceSelect');
+                for (let i = 0; i < select.options.length; i++) {
+                    if (select.options[i].text.includes(serviceName)) {
+                        select.selectedIndex = i;
+                        break;
+                    }
+                }
             }
-            .animate-marquee {
-                display: flex;
-                width: 200%;
-                animation: marquee 15s linear infinite;
-            }
-        `;
-        document.head.appendChild(style);
+        }
+
+        function closeModal() {
+            document.getElementById('infoModal').classList.add('hidden');
+        }
+
+        // GSAP Title Entrance
+        gsap.registerPlugin(ScrollTrigger);
+        gsap.from(".hero-title", { opacity: 0, y: 40, duration: 1, ease: "power3.out" });
     </script>
 </body>
 </html>
