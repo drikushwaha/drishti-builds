@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drishti — Developer & Designer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        syne: ['Syne', 'sans-serif'],
+                        space: ['Space Grotesk', 'sans-serif'],
+                    },
+                    colors: {
+                        matcha: '#9EF01A',
+                        darkbg: '#0B0B0B',
+                        cardbg: '#141414',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0B0B0B;
+            color: #E5E5E5;
+            cursor: default;
+        }
+        .text-stroke {
+            -webkit-text-stroke: 1.5px #333;
+            color: transparent;
+        }
+        .text-stroke:hover {
+            -webkit-text-stroke: 1.5px #9EF01A;
+            color: #9EF01A;
+            transition: all 0.3s ease;
+        }
+        /* Glowing Mouse Follower */
+        #glow {
+            pointer-events: none;
+            background: radial-gradient(circle, rgba(158, 240, 26, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
+            transition: transform 0.1s linear;
+        }
+    </style>
+</head>
+<body class="font-space overflow-x-hidden selection:bg-matcha selection:text-black">
+
+    <div id="glow" class="fixed top-0 left-0 w-[500px] h-[500px] -translate-x-1/2 -translate-y-1/2 z-0 rounded-full"></div>
+
+    <nav class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-6 md:px-12 py-6 backdrop-blur-md bg-darkbg/60 border-b border-white/5">
+        <a href="#" class="font-syne text-xl font-bold tracking-wider text-white hover:text-matcha transition-colors">DRISHTI<span class="text-matcha">.</span></a>
+        <div class="flex items-center gap-4">
+            <span class="inline-flex items-center gap-2 px-3 py-1 text-xs uppercase tracking-widest bg-white/5 rounded-full border border-white/10 text-neutral-400">
+                <span class="w-2 h-2 rounded-full bg-matcha animate-pulse"></span> India 🇮🇳
+            </span>
+            <a href="#contact" class="hidden sm:inline-block px-5 py-2 text-sm font-semibold bg-matcha text-black rounded-full hover:bg-white hover:scale-105 transition-all">Let's Talk</a>
+        </div>
+    </nav>
+
+    <section class="min-h-screen pt-32 pb-20 px-6 md:px-12 flex flex-col justify-center relative z-10 max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <div class="lg:col-span-7 space-y-6">
+                <p class="text-matcha uppercase tracking-widest text-sm font-semibold hover-target">Creative Developer & Visual Designer</p>
+                <h1 class="font-syne text-5xl sm:text-7xl xl:text-8xl font-extrabold uppercase leading-[0.95] tracking-tight text-white hero-title">
+                    Crafting <br>
+                    <span class="text-stroke">Digital</span> <br>
+                    Attitude.
+                </h1>
+                <p class="text-neutral-400 text-lg max-w-lg leading-relaxed pt-2">
+                    Fuelled by matcha and clean code. I build bold, motion-driven websites that turn passive visitors into active scrolling addicts.
+                </p>
+                <div class="pt-4 flex items-center gap-6">
+                    <a href="#work" class="px-8 py-4 bg-matcha text-black font-bold uppercase tracking-wider rounded-full hover:shadow-[0_0_30px_rgba(158,240,26,0.4)] transition-all">Explore Work</a>
+                    <a href="#about" class="text-neutral-400 hover:text-white transition-colors underline underline-offset-8 decoration-matcha">About Me</a>
+                </div>
+            </div>
+
+            <div class="lg:col-span-5 relative flex justify-center">
+                <div class="relative w-full max-w-md aspect-[3/4] rounded-2xl overflow-hidden border border-white/10 bg-cardbg shadow-2xl group">
+                    <img src="YOUR_IMAGE_URL_HERE.jpg" alt="Drishti" class="w-full h-full object-cover grayscale contrast-125 group-hover:scale-105 group-hover:grayscale-0 transition-all duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                    <div class="absolute bottom-6 left-6 right-6 flex justify-between items-end">
+                        <div>
+                            <p class="text-xs uppercase tracking-widest text-matcha font-semibold">Matcha-fueled</p>
+                            <p class="text-lg font-syne font-bold text-white">Full-Stack Magic</p>
+                        </div>
+                        <span class="text-3xl">🍵</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <div class="w-full py-6 bg-matcha text-black font-syne font-extrabold text-2xl md:text-4xl uppercase tracking-wider overflow-hidden rotate-[-2deg] my-12 border-y-2 border-black">
+        <div class="flex gap-8 whitespace-nowrap animate-marquee">
+            <span>UI/UX Design • Web Development • Kinetic Motion • Interactive 3D • React • GSAP • Creative Direction •</span>
+            <span>UI/UX Design • Web Development • Kinetic Motion • Interactive 3D • React • GSAP • Creative Direction •</span>
+        </div>
+    </div>
+
+    <section id="work" class="py-24 px-6 md:px-12 max-w-7xl mx-auto z-10 relative">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-4">
+            <div>
+                <span class="text-matcha uppercase tracking-widest text-xs font-semibold">Selected Works</span>
+                <h2 class="font-syne text-4xl sm:text-6xl font-bold uppercase text-white mt-2">Projects That <span class="text-stroke">Pop</span></h2>
+            </div>
+            <p class="text-neutral-400 max-w-xs text-sm">Every line of code is written with performance and visceral visual interaction in mind.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="group relative bg-cardbg border border-white/5 rounded-2xl p-6 hover:border-matcha/50 transition-all duration-500 overflow-hidden">
+                <div class="aspect-video bg-neutral-900 rounded-xl mb-6 overflow-hidden relative">
+                    <div class="absolute inset-0 bg-neutral-800 flex items-center justify-center text-neutral-600 font-syne text-2xl font-bold group-hover:scale-110 transition-transform duration-500">[ Interactive Web App ]</div>
+                </div>
+                <div class="flex justify-between items-start">
+                    <div>
+                        <h3 class="font-syne text-2xl font-bold text-white group-hover:text-matcha transition-colors">Neo-Brutalist E-Com</h3>
+                        <p class="text-neutral-400 text-sm mt-1">Design System & Next.js Development</p>
+                    </div>
+                    <span class="p-3 bg-white/5 rounded-full group-hover:bg-matcha group-hover:text-black transition-all">↗</span>
+                </div>
+            </div>
+
+            <div class="group relative bg-cardbg border border-white/5 rounded-2xl p-6 hover:border-matcha/50 transition-all duration-500 overflow-hidden md:translate-y-12">
+                <div class="aspect-video bg-neutral-900 rounded-xl mb-6 overflow-hidden relative">
+                    <div class="absolute inset-0 bg-neutral-800 flex items-center justify-center text-neutral-600 font-syne text-2xl font-bold group-hover:scale-110 transition-transform duration-500">[ Motion Portfolio ]</div>
+                </div>
+                <div class="flex justify-between items-start">
+                    <div>
+                        <h3 class="font-syne text-2xl font-bold text-white group-hover:text-matcha transition-colors">Aesthetic Studio Concept</h3>
+                        <p class="text-neutral-400 text-sm mt-1">GSAP ScrollTrigger & Three.js</p>
+                    </div>
+                    <span class="p-3 bg-white/5 rounded-full group-hover:bg-matcha group-hover:text-black transition-all">↗</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-32 px-6 md:px-12 max-w-7xl mx-auto text-center relative z-10">
+        <div class="bg-gradient-to-b from-cardbg to-black border border-white/10 rounded-3xl p-10 md:p-20 relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-64 h-64 bg-matcha/10 rounded-full blur-3xl"></div>
+            <span class="text-matcha uppercase tracking-widest text-xs font-semibold">Got an idea?</span>
+            <h2 class="font-syne text-4xl sm:text-7xl font-extrabold uppercase text-white mt-4 mb-8 leading-tight">
+                Let’s Build Something <br><span class="text-matcha">Unforgettable</span>
+            </h2>
+            <a href="mailto:hello@drishti.dev" class="inline-block px-10 py-5 bg-matcha text-black font-syne font-bold text-lg uppercase tracking-wider rounded-full hover:bg-white hover:scale-105 transition-all shadow-lg">
+                Start a Project
+            </a>
+            <div class="mt-16 flex justify-center gap-8 text-neutral-400 text-sm">
+                <a href="#" class="hover:text-matcha transition-colors">GitHub</a>
+                <a href="#" class="hover:text-matcha transition-colors">LinkedIn</a>
+                <a href="#" class="hover:text-matcha transition-colors">Twitter / X</a>
+                <a href="#" class="hover:text-matcha transition-colors">Instagram</a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Initialize GSAP
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Glowing cursor follower logic
+        const glow = document.getElementById('glow');
+        window.addEventListener('mousemove', (e) => {
+            glow.style.transform = `translate(${e.clientX - 250}px, ${e.clientY - 250}px)`;
+        });
+
+        // Hero Title Entry Animation
+        gsap.from(".hero-title", {
+            opacity: 0,
+            y: 50,
+            duration: 1.2,
+            ease: "power4.out"
+        });
+
+        // Marquee Smooth Infinite Loop CSS
+        const style = document.createElement('style');
+        style.innerHTML = `
+            @keyframes marquee {
+                0% { transform: translateX(0%); }
+                100% { transform: translateX(-50%); }
+            }
+            .animate-marquee {
+                display: flex;
+                width: 200%;
+                animation: marquee 15s linear infinite;
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
