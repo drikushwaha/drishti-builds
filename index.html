@@ -431,7 +431,8 @@
             <h3 class="font-syne text-2xl font-bold text-white mb-2">Project Request Form ⚡</h3>
             <p class="text-neutral-400 text-xs mb-6">Fill in your details below to kickstart your website build on your exact terms.</p>
             
-            <form action="https://formspree.io/f/xknlqrrr" method="POST" class="space-y-4">
+           <form name="project-request" method="POST" data-netlify="true" class="space-y-4">
+    <input type="hidden" name="form-name" value="project-request" />
                 <div>
                     <label class="block text-xs uppercase tracking-wider text-neutral-300 mb-1">Your Name</label>
                     <input type="text" name="name" required placeholder="Your Name" class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-matcha">
