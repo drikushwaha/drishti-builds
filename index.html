@@ -235,11 +235,14 @@
                 </div>
             </a>
 
-            <div class="glass-card p-6 rounded-2xl group hover:border-matcha/80 transition-all duration-500 relative">
-                <div class="aspect-video bg-neutral-900 rounded-xl mb-6 overflow-hidden flex items-center justify-center border border-white/5 relative">
-                    <span class="font-syne text-2xl font-extrabold text-neutral-500 group-hover:text-matcha transition-all duration-500">MARKETER PORTFOLIO</span>
-                    <div class="absolute top-4 right-4 bg-white/10 text-neutral-300 text-xs font-bold px-3 py-1 rounded-full">Custom Build</div>
-                </div>
+           <div class="glass-card p-6 rounded-2xl group hover:border-matcha/80 transition-all duration-500 relative">
+    
+    <!-- We changed the 'div' to an 'a' link right here 👇 -->
+    <a href="https://prince-marketing.netlify.app" target="_blank" class="aspect-video bg-neutral-900 rounded-xl mb-6 overflow-hidden flex items-center justify-center border border-white/5 relative block">
+        <span class="font-syne text-2xl font-extrabold text-neutral-500 group-hover:text-matcha transition-all duration-500">MARKETER PORTFOLIO</span>
+        <div class="absolute top-4 right-4 bg-white/10 text-neutral-300 text-xs font-bold px-3 py-1 rounded-full">Custom Build</div>
+    </a> 
+    <!-- Notice how it closes with </a> now instead of </div> 👆 -->
                 <div class="flex justify-between items-center">
                     <div>
                         <h3 class="font-syne text-2xl font-bold text-white group-hover:text-matcha transition-colors">Digital Marketer Portfolio</h3>
